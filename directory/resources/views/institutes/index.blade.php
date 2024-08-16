@@ -85,9 +85,7 @@
                         </select>
                     </div>
                 </div>
-                <div>
-                    <button type="submit" class="btn btn-primary mt-4">Filter</button>
-                </div>
+
             </div>
         </form>
     </div>
