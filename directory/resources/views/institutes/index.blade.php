@@ -4,9 +4,15 @@
 
 @section('content')
 
-<div class="row">
+<div class="row py-4">
     <div class="col-md-12">
-        <h1>Institutes by State and IHE</h1>
+        <h1>Institutes of Higher Education Early Childhood Programs</h1>
+        <div class="alert alert-info">
+            <p>
+                This directory is a list of Institutes of Higher Education (IHE) that offer certificate and degree programs in early childhood, early childhood special education, and blended programs.
+                The directory is organized by state and then by IHE. Each IHE is listed with the early childhood programs
+                they offer. The directory is updated annually.
+            </p>
     </div>
 </div>
 
