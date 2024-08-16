@@ -6,8 +6,7 @@ use App\Models\Institute;
 Route::resource('institutes', 'App\Http\Controllers\InstituteController');
 
 Route::get('/', function () {
-    // Institute/InstituteController@index
-
-    $institutes = Institute::all();
-    return view('institutes.index', compact('institutes'));
+    // invoke the index method of the InstituteController
+    return redirect()->route('institutes.index');
+    
 });

@@ -12,7 +12,12 @@ class InstituteController extends Controller
      */
     public function index()
     {
-        $Institutes = Institute::all();
+        // Institute/InstituteController@index
+
+        // get the institutes grouped by IHE because IHE is the actual name of the institution, everything else pertains to the program
+
+        $institutes = Institute::all()->groupBy(['state', 'ihe']);
+        return view('institutes.index', compact('institutes'));
     }
 
     /**

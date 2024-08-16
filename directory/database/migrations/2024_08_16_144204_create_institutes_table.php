@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('institutes', function (Blueprint $table) {
             $table->id();
-            $table->string('state_name');
-            $table->string('ihe_name');
+            $table->string('state');
+            $table->string('ihe');
             $table->string('program_title');
-            $table->string('program_type');
             $table->string('level_of_degree');
             $table->string('format');
             $table->boolean('alternate_route_to_certification');

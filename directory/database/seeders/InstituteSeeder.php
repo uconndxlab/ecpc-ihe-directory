@@ -20,20 +20,19 @@ class InstituteSeeder extends Seeder
 
         while (($data = fgetcsv($file)) !== false) {
             // Skip the header row.
-            if ($data[0] === 'state_name') {
+            if ($data[0] === 'State') {
                 continue;
             }
 
             Institute::create([
-                'state_name' => $data[0],
-                'ihe_name' => $data[1],
+               'state' => $data[0],
+                'ihe' => $data[1],
                 'program_title' => $data[2],
-                'program_type' => $data[3],
-                'level_of_degree' => $data[4],
-                'format' => $data[5],
-                'alternate_route_to_certification' => $data[6],
-                'category_of_credentialing' => $data[7],
-                'url_for_program' => $data[8],
+                'level_of_degree' => $data[3],
+                'format' => $data[4],
+                'alternate_route_to_certification' => $data[5],
+                'category_of_credentialing' => $data[6],
+                'url_for_program' => $data[7],
             ]);
         }
 
