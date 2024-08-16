@@ -5,9 +5,9 @@
 @section('content')
 
 <div class="row py-4">
-    <div class="col-md-12">
+    <div class="col-md-12 py-2">
         <h1>Institutes of Higher Education Early Childhood Programs</h1>
-        <div class="alert alert-info">
+        <div class="alert alert-info mt-2">
             <p>
                 This directory is a list of Institutes of Higher Education (IHE) that offer certificate and degree programs in early childhood, early childhood special education, and blended programs.
                 The directory is organized by state and then by IHE. Each IHE is listed with the early childhood programs
@@ -19,13 +19,19 @@
 <!-- filter UI based on all the fields like state, IHE, program title, level of degree, format, category of credentialing, alternate route to certification -->
 <div class="row">
     <div class="col-md-12">
-        <form action="{{ route('institutes.index') }}" method="get">
-            <div class="row">
-                <div class="col-md-3">
+        <form 
+        hx-get="{{ route('institutes.index') }}"
+        hx-trigger="change"
+        hx-target="#stateAccordion"
+        hx-swap="outerHTML"
+        hx-select="#stateAccordion"
+        action="{{ route('institutes.index') }}" method="get">
+            <div class="d-flex justify-content-between">
+                <div>
                     <div class="form-group mb-3">
                         <label for="state">State</label>
                         <select name="state" id="state" class="form-select">
-                            <option value="">Select State</option>
+                            <option value="">All States</option>
                             @foreach($states as $state)
                                 <option value="{{ $state }}" {{ request('state') == $state ? 'selected' : '' }}>
                                     {{ $state }}
@@ -35,11 +41,11 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div>
                     <div class="form-group mb-3">
-                        <label for="level_of_degree">Level of Degree</label>
+                        <label for="level_of_degree">Degree Level</label>
                         <select name="level_of_degree" id="level_of_degree" class="form-select">
-                            <option value="">Select Level of Degree</option>
+                            <option value="">All Degree Levels</option>
                             @foreach($levelsOfDegree as $levelOfDegree)
                                 <option value="{{ $levelOfDegree }}"
                                         {{ request('level_of_degree') == $levelOfDegree ? 'selected' : '' }}>
@@ -51,11 +57,11 @@
 
                 </div>
 
-                <div class="col-md-3">
+                <div>
                     <div class="form-group mb-3">
                         <label for="format">Format</label>
                         <select name="format" id="format" class="form-select">
-                            <option value="">Select Format</option>
+                            <option value="">All Formats</option>
                             @foreach($formats as $format)
                                 <option value="{{ $format }}" {{ request('format') == $format ? 'selected' : '' }}>
                                     {{ $format }}
@@ -65,11 +71,11 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <div>
                     <div class="form-group mb-3">
                         <label for="category_of_credentialing">Category of Credentialing</label>
                         <select name="category_of_credentialing" id="category_of_credentialing" class="form-select">
-                            <option value="">Select Category of Credentialing</option>
+                            <option value="">All Categories</option>
                             @foreach($categoriesOfCredentialing as $categoryOfCredentialing)
                                 <option value="{{ $categoryOfCredentialing }}"
                                         {{ request('category_of_credentialing') == $categoryOfCredentialing ? 'selected' : '' }}>
@@ -79,48 +85,7 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="col-md-3">
-                    <div class="form-group mb-3">
-                        <label for="alternate_route_to_certification">Alternate Route to Certification</label>
-                        <select name="alternate_route_to_certification" id="alternate_route_to_certification"
-                                class="form-select">
-                            <option value="">Select Alternate Route to Certification</option>
-                            <option value="1" {{ request('alternate_route_to_certification') == '1' ? 'selected' : '' }}>
-                                Yes
-                            </option>
-                            <option value="0" {{ request('alternate_route_to_certification') == '0' ? 'selected' : '' }}>
-                                No
-                            </option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="form-group mb-3">
-                        <label for="sort_by">Sort By</label>
-                        <select name="sort_by" id="sort_by" class="form-select">
-                            <option value="state" {{ request('sort_by') == 'state' ? 'selected' : '' }}>State</option>
-                            <option value="ihe" {{ request('sort_by') == 'ihe' ? 'selected' : '' }}>IHE</option>
-                            <option value="program_title"
-                                    {{ request('sort_by') == 'program_title' ? 'selected' : '' }}>Program Title
-                            </option>
-                            <option value="level_of_degree"
-                                    {{ request('sort_by') == 'level_of_degree' ? 'selected' : '' }}>Level of Degree
-                            </option>
-                            <option value="format" {{ request('sort_by') == 'format' ? 'selected' : '' }}>Format</option>
-                            <option value="category_of_credentialing"
-                                    {{ request('sort_by') == 'category_of_credentialing' ? 'selected' : '' }}>
-                                Category of Credentialing
-                            </option>
-                            <option value="alternate_route_to_certification"
-                                    {{ request('sort_by') == 'alternate_route_to_certification' ? 'selected' : '' }}>
-                                Alternate Route to Certification
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-3">
+                <div>
                     <button type="submit" class="btn btn-primary mt-4">Filter</button>
                 </div>
             </div>
@@ -133,7 +98,7 @@
         <div class="state row">
             <div class="col-md-12">
                 <h2>
-                    {{ $state }} <small>({{ count($stateGroup) }})</small>
+                    {{ $state }} <small>({{ count($stateGroup) }} programs)</small>
                 </h2>
                 <!-- number of programs in state -->
 
