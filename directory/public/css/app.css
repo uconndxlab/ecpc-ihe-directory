@@ -1,0 +1,88 @@
+/** these styles help make the page look a little better. programs are grouped by .ihe, and .ihe is grouped by .state. */
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 2em;
+    font-weight: bold;
+    color:#041e42;
+}
+
+.state {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 1em;
+    border: 1px solid #041e42;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+.state h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    color:#041e42;
+}
+
+.ihe h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color:#041e42;
+}
+
+.ihe .card {
+    margin-bottom: 1em;
+
+    border: 1px solid #041e42;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+
+
+.ihe .card .card-title {
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:#041e42;
+}
+
+
+
+.ihe .card .card-body .card-text {
+    font-size: 1em;
+    color:#041e42;
+}
+
+.ihe .card .card-body .card-text a {
+    color:#041e42;
+}
+
+.ihe .card .card-body .card-text a:hover {
+    color:#041e42;
+}
+
+.ihe .card .card-body .card-text a:visited {
+    color:#041e42;
+}
+
+.ihe .card .card-body .card-text a:active {
+    color:#041e42;
+}
+
+.ihe .card-footer {
+    font-size: 0.8em;
+    color:#041e42;
+}
+
+.ihe .card .card-footer a {
+    color:#041e42;
+}
+
+.ihe .card .card-footer a:hover {
+    color:#041e42;
+}
+
