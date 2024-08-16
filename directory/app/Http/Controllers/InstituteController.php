@@ -43,6 +43,10 @@ class InstituteController extends Controller
         if ($categoryOfCredentialingFilter) {
             $query->whereIn('category_of_credentialing', (array) $categoryOfCredentialingFilter);
         }
+
+        // sort by state, and then by ihe
+        $query->orderBy('state')->orderBy('ihe');
+        
     
         // Get filtered and grouped institutes
         $institutes = $query->get()->groupBy(['state', 'ihe']);
