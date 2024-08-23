@@ -89,3 +89,14 @@ h1 {
 .alert p {
     margin-bottom:0px;
 }
+
+.txt-primary {
+    color: #006aff;
+    text-decoration: underline;
+}
+path {
+    cursor: pointer!important;
+}
+path:hover {
+    fill: #006aff!important;
+}
